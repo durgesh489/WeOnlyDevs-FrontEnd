@@ -17,7 +17,7 @@ const DeveloperList = () => {
     const fetchDevelopers = async () => {
       try {
         const response = await axios.get(
-          "https://api.weonlydevs.com/work-details"
+          "https://api.weonlydevs.com/developers"
         );
         setDevelopers(response.data);
       } catch (err) {
