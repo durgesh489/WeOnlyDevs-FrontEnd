@@ -14,7 +14,6 @@ const DeveloperList = () => {
     return text.substring(0, limit) + "...";
   };
   useEffect(() => {
-    
     const fetchDevelopers = async () => {
       try {
         const response = await axios.get(
@@ -57,9 +56,7 @@ const DeveloperList = () => {
                 <img
                   src={
                     developer.image
-                      ? `https://api.weonlydevs.com/uploads/${developer.image}
-                        .split("/")
-                        .pop()}`
+                      ? `https://api.weonlydevs.com/${developer.image}`
                       : "https://cdn-icons-png.flaticon.com/512/847/847969.png"
                   }
                   className="card-img-top rounded-circle mx-auto"
