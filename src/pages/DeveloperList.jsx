@@ -16,7 +16,9 @@ const DeveloperList = () => {
   useEffect(() => {
     const fetchDevelopers = async () => {
       try {
-        const response = await axios.get("http://147.79.70.33:5000/work-details");
+        const response = await axios.get(
+          "https://api.weonlydevs.com/work-details"
+        );
         setDevelopers(response.data);
       } catch (err) {
         setError(err.message);

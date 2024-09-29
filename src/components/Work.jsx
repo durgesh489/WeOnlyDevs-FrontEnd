@@ -35,7 +35,7 @@ const WorkDetailsForm = () => {
     }
 
     try {
-      const response = await axios.post("http://147.79.70.33:5000/work-details", dataToSend);
+      const response = await axios.post("https://api.weonlydevs.com/work-details", dataToSend);
       setMessage("Work details submitted successfully!");
       
       // Reset form

@@ -9,7 +9,7 @@ const WorkList = () => {
   useEffect(() => {
     const fetchWorks = async () => {
       try {
-        const response = await axios.get("http://147.79.70.33:5000/work-details");
+        const response = await axios.get("https://api.weonlydevs.com/work-details");
         setWorks(response.data);
       } catch (error) {
         console.error("Error fetching works:", error);

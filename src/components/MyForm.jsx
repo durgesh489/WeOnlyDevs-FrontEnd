@@ -34,7 +34,7 @@ const ServiceForm = () => {
     }
 
     try {
-      await axios.post("http://147.79.70.33:5000/developers", formDataToSend, {
+      await axios.post("https://api.weonlydevs.com/developers", formDataToSend, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
