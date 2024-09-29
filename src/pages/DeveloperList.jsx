@@ -14,6 +14,7 @@ const DeveloperList = () => {
     return text.substring(0, limit) + "...";
   };
   useEffect(() => {
+    
     const fetchDevelopers = async () => {
       try {
         const response = await axios.get(
@@ -51,40 +52,44 @@ const DeveloperList = () => {
             className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
             key={developer._id}
           >
-            <div className="card shadow-sm" style={{ height: "100%" }}>
-              <img
-                src={
-                  developer.image
-                    ? `https://api.weonlydevs.com/uploads/${developer.image
+            {developer.approve === 1 ? (
+              <div className="card shadow-sm" style={{ height: "100%" }}>
+                <img
+                  src={
+                    developer.image
+                      ? `https://api.weonlydevs.com/uploads/${developer.image}
                         .split("/")
                         .pop()}`
-                    : "https://cdn-icons-png.flaticon.com/512/847/847969.png"
-                }
-                className="card-img-top rounded-circle mx-auto"
-                alt={developer.name}
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  objectFit: "cover",
-                  marginTop: "20px",
-                }}
-              />
-              <div className="card-body">
-                <h5 className="card-title text-black">{developer.name}</h5>
-                <p className="card-text">
-                  <strong>Email:</strong> {developer.email}
-                </p>
-                <p className="card-text">
-                  <strong>Title:</strong> {developer.title}
-                </p>
-                <p className="card-text">
-                  <strong>Experience:</strong> {developer.experience}
-                </p>
-                <p className="card-text">
-                  <strong>About:</strong> {truncateText(developer.about, 80)}
-                </p>
+                      : "https://cdn-icons-png.flaticon.com/512/847/847969.png"
+                  }
+                  className="card-img-top rounded-circle mx-auto"
+                  alt={developer.name}
+                  style={{
+                    width: "150px",
+                    height: "150px",
+                    objectFit: "cover",
+                    marginTop: "20px",
+                  }}
+                />
+                <div className="card-body">
+                  <h5 className="card-title text-black">{developer.name}</h5>
+                  <p className="card-text">
+                    <strong>Email:</strong> {developer.email}
+                  </p>
+                  <p className="card-text">
+                    <strong>Title:</strong> {developer.title}
+                  </p>
+                  <p className="card-text">
+                    <strong>Experience:</strong> {developer.experience}
+                  </p>
+                  <p className="card-text">
+                    <strong>About:</strong> {truncateText(developer.about, 80)}
+                  </p>
+                </div>
               </div>
-            </div>
+            ) : (
+              <span></span>
+            )}
           </div>
         ))}
       </div>

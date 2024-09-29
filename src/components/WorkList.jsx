@@ -9,7 +9,9 @@ const WorkList = () => {
   useEffect(() => {
     const fetchWorks = async () => {
       try {
-        const response = await axios.get("https://api.weonlydevs.com/work-details");
+        const response = await axios.get(
+          "https://api.weonlydevs.com/work-details"
+        );
         setWorks(response.data);
       } catch (error) {
         console.error("Error fetching works:", error);
@@ -34,20 +36,30 @@ const WorkList = () => {
         <div className="list-group">
           {works.map((work) => (
             <div key={work._id} className="list-group-item">
-              <h5>{work.projectDescription}</h5>
-              <p>
-                <strong>Client:</strong> {work.clientName} <br />
-                <strong>Email:</strong> {work.clientEmail} <br />
-                <strong>Budget:</strong> {work.projectBudget} <br />
-                <strong>Deadline:</strong> {work.deadline} <br />
-                <strong>Tech Stack:</strong> {work.techStack} <br />
-                <strong>Additional Notes:</strong> {work.additionalNotes} <br />
-              </p>
+              {work.approve === 1 ? (
+                <>
+                  <h5>{work.projectDescription}</h5>
+
+                  <p>
+                    <strong>Client:</strong> {work.clientName} <br />
+                    <strong>Email:</strong> {work.clientEmail} <br />
+                    <strong>Budget:</strong> {work.projectBudget} <br />
+                    <strong>Deadline:</strong> {work.deadline} <br />
+                    <strong>Tech Stack:</strong> {work.techStack} <br />
+                    <strong>Additional Notes:</strong> {work.additionalNotes}{" "}
+                    <br />
+                  </p>
+                </>
+              ) : (
+                <span></span>
+              )}
             </div>
           ))}
         </div>
       ) : (
-        <p>No works found. You can post new work using the "Post Work" button.</p>
+        <p>
+          No works found. You can post new work using the "Post Work" button.
+        </p>
       )}
     </div>
   );

@@ -12,6 +12,7 @@ const ServiceForm = () => {
     experience: "",
     about: "",
     image: null,
+    
   });
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
   const navigate = useNavigate(); // Initialize useNavigate
@@ -27,18 +28,23 @@ const ServiceForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     const formDataToSend = new FormData();
+    console.log(formDataToSend);
     for (const key in formData) {
       formDataToSend.append(key, formData[key]);
     }
 
     try {
-      await axios.post("https://api.weonlydevs.com/developers", formDataToSend, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        "https://api.weonlydevs.com/developers",
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       // Show the success modal
       setShowModal(true);
       // Reset the form
@@ -49,6 +55,7 @@ const ServiceForm = () => {
         experience: "",
         about: "",
         image: null,
+        
       });
     } catch (error) {
       console.error("Error creating developer:", error);
@@ -162,9 +169,12 @@ const ServiceForm = () => {
             <Modal.Header closeButton>
               <Modal.Title>Success</Modal.Title>
             </Modal.Header>
-            <Modal.Body>You are added as a developer in OnlyDevs!</Modal.Body>
+            <Modal.Body>
+              Your request is submitted for developer Once admin will approve
+              You will be appeared in developers list
+            </Modal.Body>
             <Modal.Footer>
-              <button className="btn btn-dark"onClick={handleCloseModal}>
+              <button className="btn btn-dark" onClick={handleCloseModal}>
                 Close
               </button>
             </Modal.Footer>

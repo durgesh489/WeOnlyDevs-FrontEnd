@@ -13,6 +13,7 @@ const WorkDetailsForm = () => {
     additionalNotes: "",
     techStack: "",
     resources: null,
+    
   });
 
   const [message, setMessage] = useState("");
@@ -48,6 +49,7 @@ const WorkDetailsForm = () => {
         additionalNotes: "",
         techStack: "",
         resources: null,
+        
       });
 
       // Redirect to Work List page after 1 second
