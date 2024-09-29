@@ -55,7 +55,7 @@ const DeveloperList = () => {
               <img
                 src={
                   developer.image
-                    ? `http://localhost:3000/uploads/${developer.image
+                    ? `https://api.weonlydevs.com/uploads/${developer.image
                         .split("/")
                         .pop()}`
                     : "https://cdn-icons-png.flaticon.com/512/847/847969.png"
